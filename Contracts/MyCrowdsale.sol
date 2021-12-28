@@ -2,7 +2,7 @@ pragma solidity ^0.5.5;
 
 import "@openzeppelin/contracts@2.5.0/crowdsale/Crowdsale.sol";
 
-contract MyCrowdsale is Crowdsale {
+contract SimpleCrowdsale is Crowdsale {
     constructor(
         uint256 rate,
         address payable wallet,
@@ -18,7 +18,7 @@ contract MyCrowdsale is Crowdsale {
         } else if(stage == CrowdsaleStage.second){
             return 200000;
         } else if(stage == CrowdsaleStage.third){
-            return 500000
+            return 500000;
         }
     }
     function rate() public view returns (uint256) {
@@ -57,8 +57,14 @@ contract MyCrowdsale is Crowdsale {
             if(stage == CrowdsaleStage.first){
                 setStage();
             }
-        if(seedSale >= 50000000)
+        }
+        if(seedSale >= 50000000){
+            if(stage == CrowdsaleStage.second){
+                setStage();
+            }
         }
         super._processPurchase(beneficiary, tokenAmount);   
     }
 }
+
+
