@@ -1,6 +1,6 @@
 pragma solidity ^0.5.5;
 
-import "@openzeppelin/contracts@2.5.0/crowdsale/Crowdsale.sol";
+import "openzeppelin-solidity/contracts/crowdsale/Crowdsale.sol";
 
 contract SimpleCrowdsale is Crowdsale {
     constructor(
